@@ -11,8 +11,7 @@ namespace atbash
     {
         static void Main(string[] args)
         {
-            //List<char> p = new List<char>() { 'h', 'l', 'o', 'w', ' ', 'b', 'o', 'm', 'b' };
-            //Console.WriteLine(DangerousWordSearch(p));
+            Console.WriteLine("Risk Score:" + DangerousWordSearch(Encryption("Gsv jfrxp yildm ylny qfhg")));
             int DangerousWordSearch(List<char> DecodedList)
             {
                 string DecryptedText = "";
@@ -32,8 +31,6 @@ namespace atbash
                     }
                 }
                 return RiskScore;
-
-
 
             }
         }
