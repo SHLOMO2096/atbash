@@ -41,6 +41,7 @@ namespace atbash
                 {
                     Console.Write(c);
                 }
+                Console.WriteLine();
                 return deciphered;
                 }
         
