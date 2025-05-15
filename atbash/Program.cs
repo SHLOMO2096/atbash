@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace atbash
 {
@@ -11,6 +12,9 @@ namespace atbash
         static void Main(string[] args)
 
         {
+          Console.WriteLine("Risk Score:" + DangerousWordSearch(Encryption("Gsv jfrxp yildm ylny qfhg")));
+          
+          
             // A function that decodes the compass
             List<char> Encryption(string compass)
             {
@@ -30,18 +34,40 @@ namespace atbash
                     {'u', 'f'}, {'v', 'e'}, {'w', 'd'}, {'x', 'c'}, {'y', 'b'}, {'z', 'a'}, {' ' , ' ' }
                 };
                 foreach (char c in compass)
-        {
-                    deciphered.Add(atbash[c]);
+                {
+                   deciphered.Add(atbash[c]);
                 }
                 foreach (char c in deciphered)
                 {
                     Console.Write(c);
                 }
-                retern deciphered
+                return deciphered;
+                }
+        
+          
+            int DangerousWordSearch(List<char> DecodedList)
+            {
+                string DecryptedText = "";
+                int RiskScore = 0;
+                List<string> DangerousWordS = new List<string>() {"bomb", "nukhba", "fighter", "rocket", "secret"};
+                foreach (char l in DecodedList)
+                {
+                    DecryptedText += l;
+                }
+                string[] DecryptedArr = DecryptedText.Split(' ');
+                foreach (string str in DecryptedArr)
+                {
+                    foreach (string word in DangerousWordS)
+                    {
+                        if (str.ToLower() == word)
+                            RiskScore++;
+                    }
+                }
+                return RiskScore;
+
             }
           
-            // Encryption("Gsv jfrxp yildm ylny qfhg");
-            // Console.ReadLine();
         }
+
     }
 }
